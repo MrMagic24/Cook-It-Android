@@ -1,5 +1,6 @@
 package com.uiresource.cookit;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -119,6 +120,9 @@ public class Main extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.new_recipe) {
+            //Intent intent = new Intent(this, AddRecipeActivity.class);
+            startActivity(new Intent(this, AddRecipeActivity.class));
+
             // Handle the camera action
         } else if (id == R.id.recipes) {
 
