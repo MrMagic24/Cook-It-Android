@@ -63,6 +63,9 @@ public class FragmentHome extends Fragment{
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
+                Intent intent = new Intent(getActivity(), Detail.class);
+                int i = 2;
+                intent.putExtra("key", 1);
                 startActivity(new Intent(getActivity(), Detail.class));
                     //Detail.navigate(appCompatActivity, view.findViewById(R.id.iv_recipe));
             }
