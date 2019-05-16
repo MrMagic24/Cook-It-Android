@@ -4,28 +4,20 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.util.Log;
-import android.view.MenuInflater;
 import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.uiresource.cookit.utils.AppBarStateChangeListener;
 import com.uiresource.cookit.utils.CircleGlide;
 import com.uiresource.cookit.utils.CustomTypefaceSpan;
 
@@ -126,6 +118,8 @@ public class Main extends BaseActivity
             // Handle the camera action
         } else if (id == R.id.recipes) {
 
+            startActivity(new Intent(this, TestActivity.class));
+
         } else if (id == R.id.saved) {
 
         } else if (id == R.id.shop_list) {
@@ -139,4 +133,6 @@ public class Main extends BaseActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public int con(String a){return 0;}
 }
