@@ -6,9 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Collection;
+import java.util.List;
+
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import com.uiresource.cookit.Database.*;
+
+import com.uiresource.cookit.Database.Test.Trasnlation;
 
 import java.io.IOException;
 
@@ -25,6 +28,7 @@ public class TestActivity extends AppCompatActivity {
     private String URL = "https://surviveonsotka20190514062215.azurewebsites.net/api/Account/GetList";
     private static final String TAG = "MainActivity";
     private TextView textView;
+    private String JSONText = "{\"items\":[{\"id\":\"5eee1be1-d52b-4c38-d87e-08d6d8651ad9\",\"email\":\"vladisa375@gmail.com\",\"userName\":\"vladisa375@gmail.com\",\"firstName\":null,\"lastName\":null,\"pathToAvatar\":null,\"gender\":false,\"aboutYourself\":null,\"recipiesCount\":0,\"reviewsCount\":0,\"rateReviewsCount\":0}],\"sort\":\"Id\",\"page\":0,\"pageSize\":10,\"totalItemsCount\":1,\"pagesCount\":1}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +55,16 @@ public class TestActivity extends AppCompatActivity {
                         @Override
                         public void run() {
 
-                            textView.setText(myResponse);
-
                             GsonBuilder builder = new GsonBuilder();
                             Gson gson = builder.create();
-                            AccountList acc = gson.fromJson(myResponse, AccountList.class);
-                            Log.i("GSON", "Имя: " + acc.userName + "\nID: " + acc.id + " \n");
+                            final Trasnlation trans = gson.fromJson(myResponse, Trasnlation.class);
+
+                            textView.setText(trans.setResult());
+
+                            Log.i("GSON", "Имя: " + trans.setResult() /*+ "\nID: " + acc.id + " \n"*/);
                         }
                     });
                 }
-                //Log.i(TAG,response.body().string());
-                //v = response.body().string();
             }
         });
 
