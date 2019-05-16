@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import com.uiresource.cookit.Database.*;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -46,7 +50,13 @@ public class TestActivity extends AppCompatActivity {
                     TestActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
                             textView.setText(myResponse);
+
+                            GsonBuilder builder = new GsonBuilder();
+                            Gson gson = builder.create();
+                            AccountList acc = gson.fromJson(myResponse, AccountList.class);
+                            Log.i("GSON", "Имя: " + acc.userName + "\nID: " + acc.id + " \n");
                         }
                     });
                 }
